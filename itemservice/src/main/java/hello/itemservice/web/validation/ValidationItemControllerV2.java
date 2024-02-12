@@ -41,7 +41,7 @@ public class ValidationItemControllerV2 {
     }
 
     @GetMapping("/{itemId}")
-    public String item(@PathVariable long itemId, Model model) {
+    public String item(@PathVariable("itemId") long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
         return "validation/v2/item";
@@ -92,7 +92,7 @@ public class ValidationItemControllerV2 {
     }
 
 //    @PostMapping("/add")
-    public String addItemV2(@ModelAttribute Item item,
+    public String addItemV2(@ModelAttribute("itemId") Item item,
                             BindingResult bindingResult,
                             RedirectAttributes redirectAttributes,
                             Model model) {
@@ -131,7 +131,7 @@ public class ValidationItemControllerV2 {
     }
 
 //    @PostMapping("/add")
-    public String addItemV3(@ModelAttribute Item item,
+    public String addItemV3(@ModelAttribute("itemId") Item item,
                             BindingResult bindingResult,
                             RedirectAttributes redirectAttributes,
                             Model model) {
