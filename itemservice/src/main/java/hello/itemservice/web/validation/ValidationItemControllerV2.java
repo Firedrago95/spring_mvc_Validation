@@ -183,7 +183,10 @@ public class ValidationItemControllerV2 {
             bindingResult.rejectValue("price", "range", new Object[]{1000,1000000}, null);
         }
         if (item.getQuantity() == null || item.getQuantity() > 9999) {
-            bindingResult.rejectValue("quantity", "max", new Object[]{9999}, null);
+            bindingResult.rejectValue("quantity",
+                    "max",
+                    new Object[]{9999},
+                    null);
         }
 
         //특정 필드가 아닌 복합 룰 검증
